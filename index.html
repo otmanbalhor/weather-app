@@ -9,16 +9,32 @@
 </head>
 
 <body>
-    <main>
+
+    <header>
         <div class="card">
             <div class="card__search">
-                <input type="text" class="card__search__text" placeholder="enter a city name" spellcheck="false">
+                <input list="list-country" type="text" class="card__search__text" placeholder="enter a city name" spellcheck="false">
+                <datalist id="list-country">
+                    <option value="Brussels"></option>
+                    <option value="London"></option>
+                    <option value="Paris"></option>
+                    <option value="Madrid"></option>
+                    <option value="New York"></option>
+                    <option value="Los Angeles"></option>
+                    <option value="Shanghaï"></option>
+                    <option value="Tokyo"></option>
+                    <option value="Buenos Aires"></option>
+                    <option value="Lagos"></option>
+                </datalist>
                 <button class="card__search__btn">
                     <img class="card__search__btn__img" src="assets/images/search.png" alt="search logo">
                 </button>
             </div>
         </div>
+    </header>
     
+    <main class="main">
+
     </main>
 
     <script defer src="assets/js/script.js"></script>
