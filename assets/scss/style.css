@@ -1,0 +1,77 @@
+html, body {
+  margin: 0;
+  background-color: rgb(50, 50, 50);
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  width: 100%;
+  height: 100%;
+  color: #dede8d;
+}
+html main .card, body main .card {
+  width: 90%;
+  max-width: 400px;
+  background-color: #eaeab4;
+  color: rgb(150, 100, 60);
+  padding: 40px 35px;
+  text-align: center;
+  margin: 100px auto;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px rgba(80, 80, 80, 0.15);
+}
+html main .card__search, body main .card__search {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 20%;
+}
+html main .card__search__text, body main .card__search__text {
+  background-color: #d3d365;
+  color: beige;
+  border: none;
+  padding: 3%;
+  border-radius: 20px;
+  outline: none;
+  flex: 0.7;
+  font-size: 18px;
+}
+html main .card__search__btn, body main .card__search__btn {
+  border: none;
+  outline: none;
+  background-color: #eaeab4;
+  cursor: pointer;
+  margin-right: 30%;
+}
+html main .card__search__btn__img, body main .card__search__btn__img {
+  width: 25px;
+}
+html main .container, body main .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -80px;
+}
+html main .container__weatherimg, body main .container__weatherimg {
+  height: 10%;
+  width: 10%;
+}
+html main .container__temps, body main .container__temps {
+  font-size: 80px;
+  font-weight: 500;
+}
+html main .container__city, body main .container__city {
+  font-size: 40px;
+  font-weight: 400;
+  margin-top: -20px;
+}
+html main .container__infos, body main .container__infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html main .container__infos__humidity, html main .container__infos__wind, html main .container__infos__pressure, body main .container__infos__humidity, body main .container__infos__wind, body main .container__infos__pressure {
+  font-size: 28px;
+}
+html main .container__infos__pressure__img, body main .container__infos__pressure__img {
+  width: 65%;
+}/*# sourceMappingURL=style.css.map */
