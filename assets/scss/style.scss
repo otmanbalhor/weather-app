@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Droid+Sans|Roboto+Slab:400,700');
+
+
 html,
 body {
     margin: 0;
-    background-color: rgb(50, 50, 50);
+    background-color: rgb(105, 150, 180);
     width: 100%;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Raleway";
+    font-weight: 400;
     width: 100%;
     height: 100%;
     color: darken(beige, 20%);
@@ -65,7 +69,9 @@ body {
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
+
         .container {
+            background-color: lighten(rgb(105, 150, 180),10%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -73,7 +79,7 @@ body {
             max-width: 220px;
             width: 100%;
             padding: 2%;
-
+            border-radius: 10px;
 
             &__weatherimg {
                 height: 30%;
@@ -95,24 +101,41 @@ body {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                font-size: 15px;
+               
 
-                &__humidity,
-                &__wind,
-                &__pressure {
-                    font-size: 18px;
-                }
+                &__humidity {
 
-                &__humidity {}
+                    text-align: center;
+                    &__img{
+                        width: 50%;
+                    }
 
-                &__wind {}
-
-                &__pressure {
-
-                    &__img {
-                        width: 65%;
+                    &__name{
+                        font-size: 12px;
+                    }
+                    &__val{
+                        font-size: 12px;
+                        margin-top: 2%;
+                       
                     }
                 }
+
+                &__wind {
+
+                    text-align: center;
+                    margin-left: 20%;
+                    &__img{
+                        width: 50%;
+                    }
+                    &__val{
+                        font-size: 12px;
+                       
+                    }
+                    &__name{
+                        font-size: 12px;
+                    }
+                }
+
             }
         }
 

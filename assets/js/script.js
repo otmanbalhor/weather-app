@@ -12,7 +12,6 @@ async function weather() {
 
     try {
 
-
         const input = document.querySelector('.card__search__text');
         const cityInput = input.value;
 
@@ -24,7 +23,6 @@ async function weather() {
 
         const data = await res.json();
 
-     
         const main = document.querySelector('main');
 
 
@@ -37,6 +35,7 @@ async function weather() {
             }
         }
 
+                console.log(data);
 
         for (let i = 0; i < MAX; i++) {
 
@@ -56,8 +55,25 @@ async function weather() {
             day.innerHTML = dayOfWeek+' '+calendar;
 
             const weatherimg = ElementAndClass('img', 'container__weatherimg');
-            weatherimg.src = "assets/images/clear.png";
-            weatherimg.alt = "sun logo";
+
+
+            if(data.list[i*8].weather[0].description === "overcast clouds" || data.list[i*8].weather[0].description === "scattered clouds"){
+                weatherimg.src = "assets/images/clouds.png"
+                weatherimg.alt = "weather logo";
+            }else  if(data.list[i*8].weather[0].description === "broken clouds" || data.list[i*8].weather[0].description === "few clouds"){
+                weatherimg.src = "assets/images/mist.png"
+                weatherimg.alt = "weather logo";
+            }else if(data.list[i*8].weather[0].description === "clear sky"){
+                weatherimg.src = "assets/images/clear.png"
+                weatherimg.alt = "weather logo";
+            }else if(data.list[i*8].weather[0].description === "light snow" || data.list[i*8].weather[0].description === "snow" ){
+                weatherimg.src = "assets/images/snow.png"
+                weatherimg.alt = "weather logo";
+            }else{
+                weatherimg.src = "assets/images/drizzle.png"
+                weatherimg.alt = "weather logo";
+            }
+            console.log(data.list[i*8].weather[0].description);
 
             const temp = ElementAndClass('h1', 'container__temp');
             const temperature = Math.round(data.list[i*8].main.temp);
@@ -66,7 +82,6 @@ async function weather() {
             const city = ElementAndClass('h2', 'container__city');
             city.innerHTML = cityInput;
             const infos = ElementAndClass('div', 'container__infos');
-
 
             const humidity = ElementAndClass('div', 'container__infos__humidity');
 
@@ -87,22 +102,12 @@ async function weather() {
             windImg.alt = "wind logo";
 
             const windName = ElementAndClass('p', 'container__infos__wind__name');
-            windName.innerHTML = "SPEED WIND";
+            windName.innerHTML = "WIND";
 
             const windVal = ElementAndClass('p', 'container__infos__wind__val');
-            windVal.innerHTML = `${data.list[i*8].wind.speed} km/h`;
+            let windConvert = Math.round((data.list[i*8].wind.speed)*3.6);
+            windVal.innerHTML = `${windConvert} km/h`;
 
-            const pressure = ElementAndClass('div', 'container__infos__pressure');
-
-            const pressImg = ElementAndClass('img', 'container__infos__pressure__img');
-            pressImg.src = "assets/images/pressure.png";
-            pressImg.alt = "pressure logo";
-
-            const pressName = ElementAndClass('p', 'container__infos__pressure__name');
-            pressName.innerHTML = "PRESSURE";
-
-            const pressVal = ElementAndClass('p', 'container__infos__pressure__val');
-            pressVal.innerHTML = `${data.list[i*8].main.pressure} hPa`;
 
 
             main.append(container);
@@ -119,16 +124,9 @@ async function weather() {
             wind.append(windImg);
             wind.append(windName);
             wind.append(windVal);
-            infos.append(pressure);
-            pressure.append(pressImg);
-            pressure.append(pressName);
-            pressure.append(pressVal);
     
 
         }
-
-
-       
 
     } catch (error) {
         console.error(error);
