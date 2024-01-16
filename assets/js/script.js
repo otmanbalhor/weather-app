@@ -12,7 +12,6 @@ async function weather() {
 
     try {
 
-
         const input = document.querySelector('.card__search__text');
         const cityInput = input.value;
 
@@ -36,7 +35,6 @@ async function weather() {
                 existingContainer.remove();
             }
         }
-
 
         for (let i = 0; i < MAX; i++) {
 
