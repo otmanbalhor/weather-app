@@ -35,11 +35,8 @@ async function weather() {
             }
         }
 
-<<<<<<< HEAD
-=======
                 console.log(data);
 
->>>>>>> dev
         for (let i = 0; i < MAX; i++) {
 
             const options = {

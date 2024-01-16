@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Droid+Sans|Roboto+Slab:400,700');
 
+@font-face {
+    font-family: 'Ubuntu-Regular';
+    src: 'assets/scss/Ubuntu-Regular.ttf';
+}
 
 html,
 body {
@@ -10,7 +14,7 @@ body {
     font-weight: 400;
     width: 100%;
     height: 100%;
-    color: darken(beige, 20%);
+    color: darken(beige, 35%);
 
 
     header {
@@ -19,7 +23,6 @@ body {
             width: 90%;
             max-width: 400px;
             background-color: darken(beige, 10%);
-            color: rgb(150, 100, 60);
             padding: 40px 35px;
             text-align: center;
             margin: 100px auto;
@@ -81,20 +84,25 @@ body {
             padding: 2%;
             border-radius: 10px;
 
-            &__weatherimg {
-                height: 30%;
-                width: 30%;
+            &__day{
+                font-size: 20px;
             }
 
-            &__temps {
-                font-size: 20px;
-                font-weight: 500;
+            &__weatherimg {
+                height: 30%;
+                width: 35%;
+            }
+
+            &__temp {
+                font-family: 'Ubuntu-Regular';
+                font-size: 45px;
             }
 
             &__city {
-                font-size: 15px;
+                font-size: 18px;
                 font-weight: 400;
                 margin-top: -20px;
+                font-weight: bold;
             }
 
             &__infos {
@@ -111,10 +119,10 @@ body {
                     }
 
                     &__name{
-                        font-size: 12px;
+                        font-size: 14px;
                     }
                     &__val{
-                        font-size: 12px;
+                        font-size: 14px;
                         margin-top: 2%;
                        
                     }
@@ -128,11 +136,11 @@ body {
                         width: 50%;
                     }
                     &__val{
-                        font-size: 12px;
+                        font-size: 14px;
                        
                     }
                     &__name{
-                        font-size: 12px;
+                        font-size: 14px;
                     }
                 }
 

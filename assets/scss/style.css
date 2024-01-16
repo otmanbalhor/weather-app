@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway|Droid+Sans|Roboto+Slab:400,700");
+@font-face {
+  font-family: "Ubuntu-Regular";
+  src: "assets/scss/Ubuntu-Regular.ttf";
+}
 html,
 body {
   margin: 0;
@@ -8,14 +12,13 @@ body {
   font-weight: 400;
   width: 100%;
   height: 100%;
-  color: #dede8d;
+  color: #cdcd51;
 }
 html header .card,
 body header .card {
   width: 90%;
   max-width: 400px;
   background-color: #eaeab4;
-  color: rgb(150, 100, 60);
   padding: 40px 35px;
   text-align: center;
   margin: 100px auto;
@@ -72,21 +75,26 @@ body main .container {
   padding: 2%;
   border-radius: 10px;
 }
+html main .container__day,
+body main .container__day {
+  font-size: 20px;
+}
 html main .container__weatherimg,
 body main .container__weatherimg {
   height: 30%;
-  width: 30%;
+  width: 35%;
 }
-html main .container__temps,
-body main .container__temps {
-  font-size: 20px;
-  font-weight: 500;
+html main .container__temp,
+body main .container__temp {
+  font-family: "Ubuntu-Regular";
+  font-size: 45px;
 }
 html main .container__city,
 body main .container__city {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   margin-top: -20px;
+  font-weight: bold;
 }
 html main .container__infos,
 body main .container__infos {
@@ -104,11 +112,11 @@ body main .container__infos__humidity__img {
 }
 html main .container__infos__humidity__name,
 body main .container__infos__humidity__name {
-  font-size: 12px;
+  font-size: 14px;
 }
 html main .container__infos__humidity__val,
 body main .container__infos__humidity__val {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 2%;
 }
 html main .container__infos__wind,
@@ -122,9 +130,9 @@ body main .container__infos__wind__img {
 }
 html main .container__infos__wind__val,
 body main .container__infos__wind__val {
-  font-size: 12px;
+  font-size: 14px;
 }
 html main .container__infos__wind__name,
 body main .container__infos__wind__name {
-  font-size: 12px;
+  font-size: 14px;
 }/*# sourceMappingURL=style.css.map */
