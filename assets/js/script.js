@@ -1,3 +1,4 @@
+import { label,checkbox,span } from "./darkmode.js"
 
 function ElementAndClass(elementName, className) {
 
@@ -28,14 +29,9 @@ async function weather() {
 
         const MAX = 5;
 
-        for(let i=0;i<MAX;i++){
-            const existingContainer = document.querySelector('.container');
-            if (existingContainer) {
-                existingContainer.remove();
-            }
-        }
-
-                console.log(data);
+        const divWeek = ElementAndClass('div','divWeek');
+        const titleWeek = ElementAndClass('p','titleWeek');
+        titleWeek.innerHTML=`Weather in ${cityInput}:`
 
         for (let i = 0; i < MAX; i++) {
 
@@ -73,7 +69,6 @@ async function weather() {
                 weatherimg.src = "assets/images/drizzle.png"
                 weatherimg.alt = "weather logo";
             }
-            console.log(data.list[i*8].weather[0].description);
 
             const temp = ElementAndClass('h1', 'container__temp');
             const temperature = Math.round(data.list[i*8].main.temp);
@@ -107,10 +102,10 @@ async function weather() {
             const windVal = ElementAndClass('p', 'container__infos__wind__val');
             let windConvert = Math.round((data.list[i*8].wind.speed)*3.6);
             windVal.innerHTML = `${windConvert} km/h`;
-
-
-
-            main.append(container);
+            
+            main.append(titleWeek);
+            main.append(divWeek);
+            divWeek.append(container);
             container.append(day);
             container.append(weatherimg);
             container.append(temp);
@@ -136,11 +131,27 @@ async function weather() {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    const divDarkmode = document.querySelector('.nav__toggle-switch'); 
+   
+    divDarkmode.append(label);
+    label.append(checkbox);
+    label.append(span);
     const btnSearch = document.querySelector('.card__search__btn');
 
     btnSearch.addEventListener('click', weather);
 
+    document.addEventListener('keyup',function(e){
+
+        if(e.key === 'Enter'){
+
+            weather();
+        }else{
+            console.log('Please press enter')
+        }
+    })
+
 });
+
 
 
 
