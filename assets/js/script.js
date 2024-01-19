@@ -1,4 +1,5 @@
 import { label,checkbox,span } from "./darkmode.js"
+import { searchResults} from "./unsplash.js";
 
 function ElementAndClass(elementName, className) {
 
@@ -26,13 +27,22 @@ async function weather() {
 
         const main = document.querySelector('main');
 
-
         const MAX = 5;
 
-        const divWeek = ElementAndClass('div','divWeek');
+        const divTogether = ElementAndClass('div','ensemble');
+        const divTitleImg = ElementAndClass('div','ensemble__divTitleImg');
+
+        
+        const divWeek = ElementAndClass('div','ensemble__divWeek');
+
         const titleWeek = ElementAndClass('p','titleWeek');
         titleWeek.innerHTML=`Weather in ${cityInput}:`
 
+        divTogether.append(divTitleImg)
+        divTitleImg.append(titleWeek);
+        divTitleImg.append(searchResults);
+
+        
         for (let i = 0; i < MAX; i++) {
 
             const options = {
@@ -103,8 +113,10 @@ async function weather() {
             let windConvert = Math.round((data.list[i*8].wind.speed)*3.6);
             windVal.innerHTML = `${windConvert} km/h`;
             
-            main.append(titleWeek);
-            main.append(divWeek);
+            
+            
+            main.append(divTogether);
+            divTogether.append(divWeek)
             divWeek.append(container);
             container.append(day);
             container.append(weatherimg);
@@ -120,7 +132,6 @@ async function weather() {
             wind.append(windName);
             wind.append(windVal);
     
-
         }
 
     } catch (error) {

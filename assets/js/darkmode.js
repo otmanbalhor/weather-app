@@ -1,3 +1,8 @@
+let darkmode = localStorage.getItem('darkmode');
+
+
+
+
 export const label = document.createElement('label');
 label.classList.add('nav__toggle-switch__switch-label');
 
@@ -8,20 +13,24 @@ checkbox.classList.add('nav__toggle-switch__switch-label__checkbox');
 export const span = document.createElement('span');
 span.classList.add('nav__toggle-switch__switch-label__slider');
 
-const searchImg = document.querySelector('.card__search__btn');
-
-
 
 checkbox.addEventListener('change', function () {
 
-    const nav = document.querySelector('.nav');
-    const card = document.querySelector('.card');
-    const inputSearch = document.querySelector('.card__search__text');
-    const btnSearch = document.querySelector('.card__search__btn');
-    const cartes = document.getElementsByClassName('container');
-    const divWeeks = document.getElementsByClassName('divWeek');
+    document.body.classList.toggle('dark');
 
-    if (checkbox.checked) {
+    const nav = document.querySelector('.nav');
+    nav.classList.toggle('dark');
+    const card = document.querySelector('.card');
+    card.classList.toggle('dark');
+    const inputSearch = document.querySelector('.card__search__text');
+    inputSearch.classList.toggle('dark');
+    const btnSearch = document.querySelector('.card__search__btn');
+    btnSearch.classList.toggle('dark');
+
+    document.querySelectorAll('.container').forEach(carte => carte.classList.toggle('dark'));
+    document.querySelectorAll('.divWeek').forEach(divWeek => divWeek.classList.toggle('dark'));
+
+    /*if (checkbox.checked) {
         document.body.style.backgroundColor = "rgb(50,50,50)";
         document.body.style.color = "rgb(255,255,255)";
         document.body.style.transition = "0.7s";
@@ -52,32 +61,6 @@ checkbox.addEventListener('change', function () {
         Array.from(divWeeks).forEach(divWeek => {
             divWeek.style.backgroundColor = "";
         });
-    }
+    }*/
 });
 
-
-searchImg.addEventListener('click', function () {
-
-    const cartes = document.getElementsByClassName('container');
-    const divWeeks = document.getElementsByClassName('divWeek');
-
-    if (checkbox.checked) {
-        Array.from(cartes).forEach(carte => {
-            carte.style.backgroundColor = "rgb(100,100,100)";
-        });
-        Array.from(divWeeks).forEach(divWeek => {
-            divWeek.style.backgroundColor = "rgb(70,70,70)";
-        });
-
-    } else {
-        Array.from(cartes).forEach(carte => {
-            carte.style.backgroundColor = "";
-        });
-
-        Array.from(divWeeks).forEach(divWeek => {
-            divWeek.style.backgroundColor = "";
-        });
-
-    }
-
-});
