@@ -32,7 +32,6 @@ async function weather() {
         const divTogether = ElementAndClass('div','ensemble');
         const divTitleImg = ElementAndClass('div','ensemble__divTitleImg');
 
-        
         const divWeek = ElementAndClass('div','ensemble__divWeek');
 
         const titleWeek = ElementAndClass('p','titleWeek');
@@ -41,6 +40,43 @@ async function weather() {
         divTogether.append(divTitleImg)
         divTitleImg.append(titleWeek);
         divTitleImg.append(searchResults);
+
+        const divChartContainer = ElementAndClass('div','chartContainer')
+        const barCanvas = ElementAndClass('canvas','canvas');
+        barCanvas.id = 'barCanvas'
+        barCanvas.role="img"
+    
+    
+        
+        new Chart(barCanvas,{
+            type:"line",
+            data:{
+                labels:[data.list[0*8].dt_txt, data.list[1*8].dt_txt, data.list[2*8].dt_txt, data.list[3*8].dt_txt, data.list[4*8].dt_txt],
+                datasets:[{
+                    data:[data.list[0*8].main.temp,data.list[1*8].main.temp,data.list[2*8].main.temp,data.list[3*8].main.temp,data.list[4*8].main.temp],
+                    backgroundColor:["crimson"]
+                }]
+            },options :{
+                scales:{
+                    y:{
+                        suggestedMax:50,
+                        ticks:{
+                            font:{
+                                size:18
+                            }
+                        }
+                    },
+                    x:{
+                        suggestedMax:5,
+                        ticks:{
+                            font:{
+                                size:18
+                            }
+                        }
+                    }
+                }
+            }
+        })
 
         
         for (let i = 0; i < MAX; i++) {
@@ -113,8 +149,6 @@ async function weather() {
             let windConvert = Math.round((data.list[i*8].wind.speed)*3.6);
             windVal.innerHTML = `${windConvert} km/h`;
             
-            
-            
             main.append(divTogether);
             divTogether.append(divWeek)
             divWeek.append(container);
@@ -133,6 +167,10 @@ async function weather() {
             wind.append(windVal);
     
         }
+
+        main.append(divChartContainer);
+        divChartContainer.append(barCanvas);
+    
 
     } catch (error) {
         console.error(error);
@@ -162,10 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 });
-
-
-
-
 
 
 

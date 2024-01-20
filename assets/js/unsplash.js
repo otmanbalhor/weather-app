@@ -21,7 +21,7 @@ async function searchImages() {
         const data = await res.json()
     
         const id = data.results[0].id;
-        searchResults = document.createElement('div');
+       searchResults = document.createElement('div');
         searchResults.id = id;
 
         const results = data.results[0];
