@@ -17,7 +17,7 @@ async function weather() {
         const input = document.querySelector('.card__search__text');
         const cityInput = input.value;
 
-        const res = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=5ae4efe85e0a37b88e4e2bcea85990bc&units=metric`)
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=5ae4efe85e0a37b88e4e2bcea85990bc&units=metric`)
 
         if (!res.ok) {
             throw new Error(`Network response was not ok: ${res.status}`);

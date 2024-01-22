@@ -28,7 +28,7 @@ async function getCityCoord(position) {
         const API_Key = `5ae4efe85e0a37b88e4e2bcea85990bc`;
         const cityLat = position.coords.latitude;
         const cityLon = position.coords.longitude;
-        const res = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${cityLat}&lon=${cityLon}&limit=1&appid=${API_Key}`)
+        const res = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${cityLat}&lon=${cityLon}&limit=1&appid=${API_Key}`)
 
         if (res.ok === false) {
             throw new Error(`Network response was not ok: ${res.status}`);
