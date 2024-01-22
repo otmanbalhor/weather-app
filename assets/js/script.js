@@ -46,8 +46,6 @@ async function weather() {
         barCanvas.id = 'barCanvas'
         barCanvas.role="img"
     
-    
-        
         new Chart(barCanvas,{
             type:"line",
             data:{

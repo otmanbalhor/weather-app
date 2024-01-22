@@ -1,8 +1,5 @@
 let darkmode = localStorage.getItem('darkmode');
 
-
-
-
 export const label = document.createElement('label');
 label.classList.add('nav__toggle-switch__switch-label');
 
